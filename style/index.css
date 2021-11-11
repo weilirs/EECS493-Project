@@ -1,0 +1,14 @@
+.hpBut {
+  position: relative;
+  top: 500px;
+  left: 45%;
+}
+
+.createEvent {
+  display: none;
+}
+textarea {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
