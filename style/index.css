@@ -1,7 +1,29 @@
+html, body {
+  background-color: beige;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage {
+  background-color: beige;
+}
+
+.btn-text {
+  font-size: 20px;
+  margin: 0px;
+}
+
 .hpBut {
   position: relative;
-  top: 500px;
-  left: 45%;
+  top: 400px;
+  background-color: #97cddf;
+  width: 300px;
+  font-size: 100px;
 }
 
 .createEvent {
