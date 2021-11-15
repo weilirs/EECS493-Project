@@ -24,7 +24,7 @@
             </div>
             <div class = "container">
              <p v-on:click="showCreatePage"><button id = "start" class = "btn hpBut"><p class="btn-text">I want to <strong>create</strong> an event</p></button></p>
-             <p><button id = "join" class = "btn hpBut"><p class="btn-text">I want to <strong>join</strong> an event</p></button></p>
+             <p v-on:click="showJoinPage"><button id = "join" class = "btn hpBut"><p class="btn-text">I want to <strong>join</strong> an event</p></button></p>
             </div>
          </div> <!-- end homepage -->
 
@@ -34,27 +34,32 @@
          <div id = "createEvent" v-if="showCreate">
              <form>
                   <label for="eventName">Event Name:</label><br>
-                  <input name="eventName" type="text" cols="40" rows="5"><br>
+                  <input v-model="eventName" name="eventName" type="text" cols="40" rows="5"><br>
          
                   <label for="yourName">Your Name:</label><br>
-                  <input name="yourName" type="text" cols="40" rows="5"><br>
+                  <input v-model="yourName" name="yourName" type="text" cols="40" rows="5"><br>
 
                   <label for="address">Address:</label><br>
-                  <input name="address" type="text" cols="40" rows="5"><br>
+                  <input v-model="address" name="address" type="text" cols="40" rows="5"><br>
 
                   <label for="date">Date:</label><br>
-                  <input name="date" type="date" cols="40" rows="5"><br>
+                  <input v-model="date" name="date" type="date" cols="40" rows="5"><br>
 
                   <label for="time">Time:</label><br>
-                  <input name="time" type="time" cols="40" rows="5"><br>
+                  <input v-model="time" name="time" type="time" cols="40" rows="5"><br>
 
                   <label for="gameDscp">Game/Event Description:</label><br>
-                  <textarea name="gameDscp" cols="40" rows="5"></textarea><br>
+                  <textarea v-model="gameDscp" name="gameDscp" cols="40" rows="5"></textarea><br>
              </form>
              <br>
              <button class = "btn"><p class="btn-text">Create Event</p></button>
+             <button class = "btn" v-on:click="createPageBack"><p class="btn-text">Back</p></button>
 
          </div> <!-- end create event page -->
+
+         <div id = "joinEvent" v-if="showJoin">
+            <button class = "btn" v-on:click="createPageBack"><p class="btn-text">Back</p></button>
+         </div> <!-- end join event page -->
         </div> <!-- end app -->
         <script src="script.js"></script>
      </body>
