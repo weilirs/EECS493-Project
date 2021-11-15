@@ -2,6 +2,11 @@ html, body {
   background-color: beige;
 }
 
+p, label {
+  font-family: "PT Sans";
+  font-size: 20px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -9,27 +14,36 @@ html, body {
   align-items: center;
 }
 
-.homepage {
+#homepage {
   background-color: beige;
 }
 
+.intro {
+  position: relative;
+  top: 385px;
+}
+
 .btn-text {
-  font-size: 20px;
   margin: 0px;
+  font-family: "PT Sans";
 }
 
 .hpBut {
   position: relative;
   top: 400px;
+}
+
+button {
   background-color: #97cddf;
   width: 300px;
   font-size: 100px;
 }
 
-.createEvent {
-  display: none;
+#createEvent {
+  background-color: beige;
 }
-textarea {
+
+.textarea {
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;

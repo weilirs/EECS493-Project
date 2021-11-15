@@ -2,7 +2,7 @@
 <html lang="en-US">
 
     <link rel="stylesheet" type="text/css" href="style/index.css">
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=PT+Sans" />
 
     <head>
         <title> LinkedOut </title>
@@ -18,26 +18,44 @@
 
      <body>
         <div id='app'>
-         <div class = "homepage">
+         <div id = "homepage" v-if="showHome">
+            <div class="container intro">
+               <p>Our site helps users find or create outdoor or sporting events in Ann Arbor</p>
+            </div>
             <div class = "container">
-             <p><button id = "start" class = "btn hpBut"><p class="btn-text">I want to <strong>start</strong> an event</p></button></p>
+             <p v-on:click="showCreatePage"><button id = "start" class = "btn hpBut"><p class="btn-text">I want to <strong>create</strong> an event</p></button></p>
              <p><button id = "join" class = "btn hpBut"><p class="btn-text">I want to <strong>join</strong> an event</p></button></p>
             </div>
          </div> <!-- end homepage -->
 
          <div class = "filterPage">
-
          </div> <!-- end filter page -->
 
-         <div class = "createEvent">
+         <div id = "createEvent" v-if="showCreate">
              <form>
-                <label for="gameInfo">Information:</label><br>
-                <textarea name="gameInfo" cols="40" rows="5"></textarea><br>
-                <label for="gameDscp">Game Description:</label><br>
-                <textarea name="gameDscp" cols="40" rows="5"></textarea><br>
-                
+                  <label for="eventName">Event Name:</label><br>
+                  <input name="eventName" type="text" cols="40" rows="5"><br>
+         
+                  <label for="yourName">Your Name:</label><br>
+                  <input name="yourName" type="text" cols="40" rows="5"><br>
+
+                  <label for="address">Address:</label><br>
+                  <input name="address" type="text" cols="40" rows="5"><br>
+
+                  <label for="date">Date:</label><br>
+                  <input name="date" type="date" cols="40" rows="5"><br>
+
+                  <label for="time">Time:</label><br>
+                  <input name="time" type="time" cols="40" rows="5"><br>
+
+                  <label for="gameDscp">Game/Event Description:</label><br>
+                  <textarea name="gameDscp" cols="40" rows="5"></textarea><br>
              </form>
+             <br>
+             <button class = "btn"><p class="btn-text">Create Event</p></button>
+
          </div> <!-- end create event page -->
         </div> <!-- end app -->
+        <script src="script.js"></script>
      </body>
 </html>
