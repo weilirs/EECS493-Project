@@ -18,9 +18,9 @@
 
      <body>
         <div id='app'>
-         <div id = "homepage" v-if="showHome">
+         <div id = "homepage" v-show="showHome">
             <div class="container intro">
-               <p>Our site helps users find or create outdoor or sporting events in Ann Arbor</p>
+               <p>Our site helps users find or create group sporting events / outdoor activities in Ann Arbor</p>
             </div>
             <div class = "container">
              <p v-on:click="showCreatePage"><button id = "start" class = "btn hpBut"><p class="btn-text">I want to <strong>create</strong> an event</p></button></p>
@@ -31,10 +31,15 @@
          <div class = "filterPage">
          </div> <!-- end filter page -->
 
-         <div id = "createEvent" v-if="showCreate">
-             <form>
+         <div id = "createEvent" v-show="showCreate">
+            <h2>Create a group sporting event or outdoor activity!</h2>
+             <form id="eventForm">
                   <label for="eventName">Event Name:</label><br>
                   <input v-model="eventName" name="eventName" type="text" cols="40" rows="5"><br>
+
+                  <label for="eventType" class="labelDescription">Event Type:</label><br>
+                  <p class="description">What type of sporting or outdoor event are you looking to create?</p>
+                  <input v-model="eventType" name="eventType" type="text" cols="40" rows="5"><br>
          
                   <label for="yourName">Your Name:</label><br>
                   <input v-model="yourName" name="yourName" type="text" cols="40" rows="5"><br>
@@ -48,18 +53,33 @@
                   <label for="time">Time:</label><br>
                   <input v-model="time" name="time" type="time" cols="40" rows="5"><br>
 
-                  <label for="gameDscp">Game/Event Description:</label><br>
-                  <textarea v-model="gameDscp" name="gameDscp" cols="40" rows="5"></textarea><br>
+                  <label for="gameDscp" class="labelDescription">Event Description:</label><br>
+                  <p class="description">Enter any important information about your event such as desired skill level, number of participants, etc.</p>
+                  <textarea v-model="gameDscp" name="gameDscp" class="textarea" cols="40" rows="5"></textarea><br>
              </form>
              <br>
-             <button class = "btn"><p class="btn-text">Create Event</p></button>
+             <button class = "btn" v-on:click="createEventHandler"><p class="btn-text">Create Event</p></button>
              <button class = "btn" v-on:click="createPageBack"><p class="btn-text">Back</p></button>
 
          </div> <!-- end create event page -->
 
-         <div id = "joinEvent" v-if="showJoin">
-            <button class = "btn" v-on:click="createPageBack"><p class="btn-text">Back</p></button>
+         <div id = "joinEvent" v-show="showJoin">
+            <button class = "btn" v-on:click="joinPageBack"><p class="btn-text">Back</p></button>
          </div> <!-- end join event page -->
+
+
+         <div id = "createSuccess" v-show="showCreateSuccess">
+            <h2>Your event has been succesfully created!</h2>
+            <p><strong>Event Name:</strong> {{ eventName }} </p>
+            <p><strong>Event Type:</strong> {{ eventType }} </p>
+            <p><strong>Your Name:</strong> {{ yourName }} </p>
+            <p><strong>Address:</strong> {{ address }} </p>
+            <p><strong>Date:</strong> {{ date }} </p>
+            <p><strong>Time:</strong> {{ time }} </p>
+            <p><strong>Event Description:</strong></p>
+            <p>{{ gameDscp }}</p>
+            <button class = "btn" v-on:click="createSuccessHome"><p class="btn-text">Home</p></button>
+         </div>
         </div> <!-- end app -->
         <script src="script.js"></script>
      </body>
