@@ -51,7 +51,7 @@ button {
   background-color: beige;
 }
 
-.filterContainer {
+#filterContainer {
   display: block;
   position: relative;
   width: 30%;

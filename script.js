@@ -5,6 +5,7 @@ var createPageView = new Vue({
         showCreate: false,
         showCreateSuccess: false,
         showFilter: false,
+        showChoose: false,
         showJoin: false,
         showHome: true,
         eventName: null,
@@ -16,7 +17,13 @@ var createPageView = new Vue({
         gameDscp: null,
         events: [],
         eventTypes: {},
+        retEvents:[],
     },
+
+    computed: {
+        
+    },
+
     methods: {
         showCreatePage () {
             this.showCreate = true;
@@ -42,7 +49,17 @@ var createPageView = new Vue({
             this.showFilter = false;
             this.showHome = true;
         },
-        
+
+        choose (name) {
+            this.showFilter = false;
+            this.showChoose = true;
+            this.retEvents = []
+            for(let i=0; i<this.events.length;i++){
+                if (this.events[i].type == name){
+                    this.retEvents.push(this.events[i]);
+                }
+            }
+        },
         joinPageBack () {
             this.showJoin = false;
             this.showHome = true;

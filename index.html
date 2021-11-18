@@ -76,13 +76,17 @@
             <button class = "btn" v-on:click="createSuccessHome"><p class="btn-text">Home</p></button>
          </div> <!-- end create success page -->
          
-         <div class = "filterContainer" v-show = "showFilter">
+         <div id = "filterContainer" v-show = "showFilter">
             <h2>Filter:</h2> <br> 
             <div class = "filterEvents"v-for="(value,name) in eventTypes">
-            <p>{{name}}&emsp;&emsp;&emsp;&emsp;{{value}}</p> <br>
+            <p @click = "choose(name)">{{name}}&emsp;&emsp;&emsp;&emsp;{{value}}</p> <br>
             </div>
             <button id = "filterBack" class = "btn" v-on:click="filterPageBack"><p class="btn-text">Back</p></button>
          </div> <!-- end filter page -->
+         
+         <div id = "chooseEvent" v-show = "showChoose">
+            {{retEvents}}
+         </div> <!-- end choose event page -->
 
          <div id = "joinEvent" v-show="showJoin">
             <button class = "btn" v-on:click="joinPageBack"><p class="btn-text">Back</p></button>
