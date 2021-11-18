@@ -1,8 +1,10 @@
-html, body {
+html,
+body {
   background-color: beige;
 }
 
-p, label {
+p,
+label {
   font-family: "PT Sans";
   font-size: 20px;
 }
@@ -49,6 +51,25 @@ button {
   background-color: beige;
 }
 
+.filterContainer {
+  display: block;
+  position: relative;
+  width: 30%;
+  height: 500px;
+  background-color: gainsboro;
+  border: 5px solid black;
+}
+
+.filterEvents {
+  position: relative;
+  font-family: "PT Sans";
+  font-size: 20px;
+}
+
+#filterBack {
+  position: relative;
+  top: 500px;
+}
 .textarea {
   padding: 12px 20px;
   margin: 8px 0;

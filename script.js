@@ -4,6 +4,7 @@ var createPageView = new Vue({
     data: {
         showCreate: false,
         showCreateSuccess: false,
+        showFilter: false,
         showJoin: false,
         showHome: true,
         eventName: null,
@@ -13,12 +14,18 @@ var createPageView = new Vue({
         date: null,
         time: null,
         gameDscp: null,
-        events: []
+        events: [],
+        eventTypes: {},
     },
     methods: {
         showCreatePage () {
             this.showCreate = true;
             this.showHome = false;
+        },
+
+        showFilterPage () {
+            this.showHome = false;
+            this.showFilter = true;
         },
 
         showJoinPage () {
@@ -31,6 +38,11 @@ var createPageView = new Vue({
             this.showHome = true;
         },
 
+        filterPageBack () {
+            this.showFilter = false;
+            this.showHome = true;
+        },
+        
         joinPageBack () {
             this.showJoin = false;
             this.showHome = true;
@@ -56,6 +68,12 @@ var createPageView = new Vue({
         createEventHandler () {
             let event = {eventName: this.eventName, type: this.eventType, yourName: this.yourName, address: this.address, date: this.date, time: this.time, description: this.gameDscp};
             this.events.push(event);
+            if (this.eventType in this.eventTypes) {
+                this.eventTypes[this.eventType] = this.eventTypes[this.eventType] + 1;
+            }
+            else {
+                this.eventTypes[this.eventType] = 1;
+            }
             this.showCreate = false;
             this.showCreateSuccess = true;
         }

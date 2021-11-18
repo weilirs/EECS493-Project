@@ -24,7 +24,7 @@
             </div>
             <div class = "container">
              <p v-on:click="showCreatePage"><button id = "start" class = "btn hpBut"><p class="btn-text">I want to <strong>create</strong> an event</p></button></p>
-             <p v-on:click="showJoinPage"><button id = "join" class = "btn hpBut"><p class="btn-text">I want to <strong>join</strong> an event</p></button></p>
+             <p v-on:click="showFilterPage"><button id = "join" class = "btn hpBut"><p class="btn-text">I want to <strong>join</strong> an event</p></button></p>
             </div>
          </div> <!-- end homepage -->
 
@@ -62,12 +62,7 @@
              <button class = "btn" v-on:click="createPageBack"><p class="btn-text">Back</p></button>
 
          </div> <!-- end create event page -->
-
-         <div id = "joinEvent" v-show="showJoin">
-            <button class = "btn" v-on:click="joinPageBack"><p class="btn-text">Back</p></button>
-         </div> <!-- end join event page -->
-
-
+         
          <div id = "createSuccess" v-show="showCreateSuccess">
             <h2>Your event has been succesfully created!</h2>
             <p><strong>Event Name:</strong> {{ eventName }} </p>
@@ -79,7 +74,20 @@
             <p><strong>Event Description:</strong></p>
             <p>{{ gameDscp }}</p>
             <button class = "btn" v-on:click="createSuccessHome"><p class="btn-text">Home</p></button>
-         </div>
+         </div> <!-- end create success page -->
+         
+         <div class = "filterContainer" v-show = "showFilter">
+            <h2>Filter:</h2> <br> 
+            <div class = "filterEvents"v-for="(value,name) in eventTypes">
+            <p>{{name}}&emsp;&emsp;&emsp;&emsp;{{value}}</p> <br>
+            </div>
+            <button id = "filterBack" class = "btn" v-on:click="filterPageBack"><p class="btn-text">Back</p></button>
+         </div> <!-- end filter page -->
+
+         <div id = "joinEvent" v-show="showJoin">
+            <button class = "btn" v-on:click="joinPageBack"><p class="btn-text">Back</p></button>
+         </div> <!-- end join event page -->
+
         </div> <!-- end app -->
         <script src="script.js"></script>
      </body>
