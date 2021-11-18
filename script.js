@@ -5,7 +5,6 @@ var createPageView = new Vue({
         showCreate: false,
         showCreateSuccess: false,
         showFilter: false,
-        showChoose: false,
         showJoin: false,
         showHome: true,
         eventName: null,
@@ -18,10 +17,6 @@ var createPageView = new Vue({
         events: [],
         eventTypes: {},
         retEvents:[],
-    },
-
-    computed: {
-        
     },
 
     methods: {
@@ -52,7 +47,6 @@ var createPageView = new Vue({
 
         choose (name) {
             this.showFilter = false;
-            this.showChoose = true;
             this.retEvents = []
             for(let i=0; i<this.events.length;i++){
                 if (this.events[i].type == name){
