@@ -9,6 +9,8 @@ var createPageView = new Vue({
         showHome: true,
         eventName: null,
         eventType: null,
+        eventCals: null,
+        eventTutorial: null,
         yourName: null,
         address: null,
         date: null,
@@ -77,6 +79,8 @@ var createPageView = new Vue({
         },
 
         createEventHandler () {
+            this.identifyEvent();
+
             let event = {eventName: this.eventName, type: this.eventType, yourName: this.yourName, address: this.address, date: this.date, time: this.time, description: this.gameDscp};
             this.events.push(event);
             if (this.eventType in this.eventTypes) {
@@ -87,6 +91,33 @@ var createPageView = new Vue({
             }
             this.showCreate = false;
             this.showCreateSuccess = true;
+        },
+
+        //function for recognizing activities for offering calorie information and instructions
+        //calorie data taken from https://captaincalculator.com/health/calorie/calories-burned-playing-soccer-calculator/
+        //calorie data assumes a weight of 150 lbs
+        identifyEvent () {
+            let checkThis = this.eventType.toUpperCase();
+
+            switch(checkThis){
+                case "SOCCER":
+                    this.eventCals = 501;
+                    this.eventTutorial = "https://en.wikipedia.org/wiki/Association_football#Gameplay";
+                    break;
+                case "BASKETBALL":
+                    this.eventCals = 465;
+                    this.eventTutorial = "https://en.wikipedia.org/wiki/Basketball#Rules_and_regulations";
+                    break;
+                case "RUNNING":
+                    this.eventCals = 573;
+                    this.eventTutorial = "You know how to run already dumbbass";
+                    break;
+                default:
+                    this.eventCals = null;
+                    this.eventTutorial = null;
+            }
+
+
         }
     }
 })

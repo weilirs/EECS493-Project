@@ -23,7 +23,12 @@ label {
 
 .intro {
   position: relative;
-  top: 385px;
+  top: 180px;
+}
+
+.logo {
+  position: relative;
+  top: 130px;
 }
 
 .btn-text {
@@ -33,7 +38,7 @@ label {
 
 .hpBut {
   position: relative;
-  top: 400px;
+  top: 210px;
 }
 
 button {
