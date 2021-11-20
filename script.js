@@ -5,7 +5,7 @@ var createPageView = new Vue({
         showCreate: false,
         showCreateSuccess: false,
         showFilter: false,
-        showJoin: false,
+        showJoin: [false,false],
         showHome: true,
         eventName: null,
         eventType: null,
@@ -32,11 +32,6 @@ var createPageView = new Vue({
             this.showFilter = true;
         },
 
-        showJoinPage () {
-            this.showJoin = true;
-            this.showHome = false;
-        },
-
         createPageBack () {
             this.showCreate = false;
             this.showHome = true;
@@ -47,6 +42,7 @@ var createPageView = new Vue({
             this.showHome = true;
         },
 
+        // choose an event type from the filter
         choose (name) {
             this.showFilter = false;
             this.retEvents = []
@@ -55,9 +51,30 @@ var createPageView = new Vue({
                     this.retEvents.push(this.events[i]);
                 }
             }
+            this.retEvents[0].isVisible = true;
         },
+
+        // switch to next event 
+        nextEvent (index) {
+            if(index < this.retEvents.length - 1){
+                this.retEvents[index].isVisible = false;
+                this.retEvents[index+1].isVisible = true;
+            }
+        },
+
+        // switch to previous event
+        preEvent (index) {
+            if(index > 0){
+                this.retEvents[index].isVisible = false;
+                this.retEvents[index-1].isVisible = true;
+            }
+        },
+
+        // return to homepage from join event page
         joinPageBack () {
-            this.showJoin = false;
+            for(let i=0; i<this.retEvents.length;i++){
+                this.retEvents[i].isVisible = false;
+            }
             this.showHome = true;
         },
 
@@ -81,7 +98,7 @@ var createPageView = new Vue({
         createEventHandler () {
             this.identifyEvent();
 
-            let event = {eventName: this.eventName, type: this.eventType, yourName: this.yourName, address: this.address, date: this.date, time: this.time, description: this.gameDscp};
+            let event = {eventName: this.eventName, type: this.eventType, yourName: this.yourName, address: this.address, date: this.date, time: this.time, description: this.gameDscp, isVisible: false};
             this.events.push(event);
             if (this.eventType in this.eventTypes) {
                 this.eventTypes[this.eventType] = this.eventTypes[this.eventType] + 1;

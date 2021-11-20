@@ -12,6 +12,7 @@
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
         </title>
      </head>
@@ -97,10 +98,17 @@
             {{retEvent}}
             
          </div> end choose event page -->
-
-         <div id = "joinEvent" v-show="showJoin">
-            <button class = "btn" v-on:click="joinPageBack"><p class="btn-text">Back</p></button>
-         </div> <!-- end join event page -->
+         <div id = "joinEventContainer" v-for="(retEv,index) in retEvents">
+            <div v-show="retEv.isVisible">
+               <div :id = "'joinEvent' + index" >
+                  <p>{{retEv}}</p>
+                  <p>{{index}}</p>
+                  <button class = "btn" v-on:click="nextEvent(index)"><p class="btn-text">Next Event</p></button>
+                  <button class = "btn" v-on:click="preEvent(index)"><p class="btn-text">Previous Event</p></button>
+                  <button class = "btn" v-on:click="joinPageBack"><p class="btn-text">Back</p></button>
+               </div> <!-- end join event page -->
+            </div>
+         </div> <!-- end join event container -->
 
         </div> <!-- end app -->
         <script src="script.js"></script>
