@@ -85,6 +85,55 @@ button {
   position: relative;
   top: 500px;
 }
+
+.joinEvent {
+  position: relative;
+  float: left;
+  width: 30%;
+  height: 500px;
+  border: 5px solid black;
+  margin-left: 5px;
+  background-color: white;
+}
+
+.joinEventInfo {
+  border-bottom: 5px solid black;
+  background-color: white;
+  padding-left: 5px;
+}
+
+.joinEventDscp {
+  border-bottom: 5px solid black;
+  background-color: gainsboro;
+  padding-left: 5px;
+}
+
+#join-next {
+  position: absolute;
+  top: 550px;
+  left: 20px;
+}
+
+#join-prev {
+  position: absolute;
+  top: 550px;
+  left: 400px;
+}
+
+#join-back {
+  position: absolute;
+  top: 550px;
+  left: 780px;
+}
+
+.joinEventMap {
+  position: relative;
+  float: right;
+  width: 70%;
+  height: 500px;
+  background-color: beige;
+}
+
 .textarea {
   padding: 12px 20px;
   margin: 8px 0;

@@ -100,13 +100,27 @@
          </div> end choose event page -->
          <div id = "joinEventContainer" v-for="(retEv,index) in retEvents">
             <div v-show="retEv.isVisible">
-               <div :id = "'joinEvent' + index" >
-                  <p>{{retEv}}</p>
-                  <p>{{index}}</p>
-                  <button class = "btn" v-on:click="nextEvent(index)"><p class="btn-text">Next Event</p></button>
-                  <button class = "btn" v-on:click="preEvent(index)"><p class="btn-text">Previous Event</p></button>
-                  <button class = "btn" v-on:click="joinPageBack"><p class="btn-text">Back</p></button>
+               <div :id = "'joinEvent' + index" class = "joinEvent">
+                  <div class = "joinEventInfo">
+                     <p><strong>{{retEv.eventName}}</strong></p>
+                     <p>Started by: {{retEv.yourName}}</p>
+                     <p>Address: {{retEv.address}}</p>
+                     <p>Date: {{retEv.date}}</p>
+                     <p>Time: {{retEv.time}}</p>
+                  </div>
+                  <div class = "joinEventDscp">
+                     {{retEv.description}}
+                  </div>
+                  
                </div> <!-- end join event page -->
+               
+               <div class = "joinEventMap">
+
+               </div> <!-- end join event map -->
+
+               <button id = "join-next" class = "btn" v-on:click="nextEvent(index)"><p class="btn-text">Next Event</p></button>
+               <button id = "join-prev" class = "btn" v-on:click="preEvent(index)"><p class="btn-text">Previous Event</p></button>
+               <button id = "join-back" class = "btn" v-on:click="joinPageBack"><p class="btn-text">Back</p></button>
             </div>
          </div> <!-- end join event container -->
 
