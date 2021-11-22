@@ -123,6 +123,7 @@
                   </div>
                   <div class = "joinEventDscp">
                      <p><strong>Event Description:</strong></p>
+                     <p id="eventType" class="no-margin">Event Type: {{ retEv.type }}</p>
                      {{retEv.description}}
                   </div>
                   <h4 id = "optData" v-show="retEv.eventCals">
