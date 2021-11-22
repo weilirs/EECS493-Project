@@ -15,6 +15,7 @@ var createPageView = new Vue({
         address: null,
         date: null,
         time: null,
+        duration: null,
         gameDscp: null,
         events: [],
         eventTypes: {},
@@ -25,6 +26,8 @@ var createPageView = new Vue({
         showCreatePage () {
             this.showCreate = true;
             this.showHome = false;
+            var today = new Date().toISOString().split('T')[0];
+            document.getElementsByName("date")[0].setAttribute('min', today);
         },
 
         showFilterPage () {
@@ -85,6 +88,7 @@ var createPageView = new Vue({
             this.address = null;
             this.date = null;
             this.time = null;
+            this.duration = null;
             this.gameDscp = null;
             $('#eventForm')[0].reset();
         },
@@ -98,8 +102,13 @@ var createPageView = new Vue({
         createEventHandler () {
             this.identifyEvent();
 
-            let event = {eventName: this.eventName, type: this.eventType, yourName: this.yourName, address: this.address, 
-            date: this.date, time: this.time, description: this.gameDscp, isVisible: false, eventCals: this.eventCals, eventTutorial: this.eventTutorial};
+            let apiAddr = this.address.split(' ').join('+');
+            let apiUrl = "https://www.google.com/maps/embed/v1/place?q=" + apiAddr + "&key=AIzaSyCoBbJGfGZmi2b01d9clRvmGxg-kcvDhW0";
+
+            this.eventType = this.eventType.toLowerCase();
+
+            let event = {eventName: this.eventName, type: this.eventType, yourName: this.yourName, address: this.address, apiURL: apiUrl,
+            date: this.date, time: this.time, duration: this.duration, description: this.gameDscp, isVisible: false, eventCals: this.eventCals, eventTutorial: this.eventTutorial};
             this.events.push(event);
             if (this.eventType in this.eventTypes) {
                 this.eventTypes[this.eventType] = this.eventTypes[this.eventType] + 1;
@@ -109,6 +118,8 @@ var createPageView = new Vue({
             }
             this.showCreate = false;
             this.showCreateSuccess = true;
+
+            console.log(event);
         },
 
         //function for recognizing activities for offering calorie information and instructions

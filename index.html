@@ -51,6 +51,7 @@
                   <input v-model="yourName" name="yourName" type="text" cols="40" rows="5"><br>
 
                   <label for="address">Address:</label><br>
+                  <p class="description">Please enter a valid Ann Arbor address</p>
                   <input v-model="address" name="address" type="text" cols="40" rows="5"><br>
 
                   <label for="date">Date:</label><br>
@@ -59,14 +60,17 @@
                   <label for="time">Time:</label><br>
                   <input v-model="time" name="time" type="time" cols="40" rows="5"><br>
 
+                  <label for="duration">Duration:</label><br>
+                  <p class="description">Enter duration of event in hours</p>
+                  <input v-model="duration" name="duration" type="number" min="0" max="10" cols="40" rows="5"><br>
+
                   <label for="gameDscp" class="labelDescription">Event Description:</label><br>
                   <p class="description">Enter any important information about your event such as desired skill level, number of participants, etc.</p>
                   <textarea v-model="gameDscp" name="gameDscp" class="textarea" cols="40" rows="5"></textarea><br>
              </form>
              <br>
-             <button class = "btn" v-on:click="createEventHandler"><p class="btn-text">Create Event</p></button>
              <button class = "btn" v-on:click="createPageBack"><p class="btn-text">Back</p></button>
-
+             <button class = "btn" v-on:click="createEventHandler"><p class="btn-text">Create Event</p></button>
          </div> <!-- end create event page -->
          
          <div id = "createSuccess" v-show="showCreateSuccess">
@@ -77,6 +81,7 @@
             <p><strong>Address:</strong> {{ address }} </p>
             <p><strong>Date:</strong> {{ date }} </p>
             <p><strong>Time:</strong> {{ time }} </p>
+            <p><strong>Duration:</strong> {{ duration }} hours</p>
             <p><strong>Event Description:</strong></p>
             <p>{{ gameDscp }}</p>
             <button class = "btn" v-on:click="createSuccessHome"><p class="btn-text">Home</p></button>
@@ -86,20 +91,19 @@
             <h2 style = "padding-left:5px;">Filter:</h2> <br> 
             <nav id = "scrollable">
                <ul>
-                  
                   <li class = "filterEvents"v-for="(value,name) in eventTypes">
-                     <p @click = "choose(name)">{{name}}&emsp;&emsp;&emsp;&emsp;{{value}}</p> <br>
+                     <p @click = "choose(name)">{{name}}&emsp;&emsp;&emsp;&emsp;{{value}}</p>
                   </li>
-
                </ul>
             </nav>
-               
-
             <button id = "filterBack" class = "btn" v-on:click="filterPageBack"><p class="btn-text">Back</p></button>
          </div> <!-- end filter page -->
 
          <div id = "filterMap" v-show = "showFilter">
-
+            <div class = "joinEventMap">
+               <!-- <iframe width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen
+               src="https://www.google.com/maps/embed/v1/place?q=Ann%20Arbor%2C%20MI&key=AIzaSyCoBbJGfGZmi2b01d9clRvmGxg-kcvDhW0"></iframe> -->
+            </div> 
          </div> <!-- end filter map -->
          
          <!-- <div id = "chooseEvent" v-show = "showChoose" v-for="retEvent in retEvents">
@@ -110,29 +114,31 @@
             <div v-show="retEv.isVisible">
                <div :id = "'joinEvent' + index" class = "joinEvent">
                   <div class = "joinEventInfo">
-                     <p><strong>{{retEv.eventName}}</strong></p>
-                     <p>Started by: {{retEv.yourName}}</p>
-                     <p>Address: {{retEv.address}}</p>
-                     <p>Date: {{retEv.date}}</p>
-                     <p>Time: {{retEv.time}}</p>
+                     <p class="no-margin"><strong>{{retEv.eventName}}</strong></p>
+                     <p class="no-margin">Started by: {{retEv.yourName}}</p>
+                     <p class="no-margin">Address: {{retEv.address}}</p>
+                     <p class="no-margin">Date: {{retEv.date}}</p>
+                     <p class="no-margin">Time: {{retEv.time}}</p>
+                     <p class="no-margin">Duration: {{retEv.duration}} hours</p>
                   </div>
                   <div class = "joinEventDscp">
+                     <p><strong>Event Description:</strong></p>
                      {{retEv.description}}
                   </div>
-                  <h2 id = "optData" v-show="retEv.eventCals">
-                     Calories: {{retEv.eventCals}} <br>
+                  <h4 id = "optData" v-show="retEv.eventCals">
+                     Calories: {{retEv.eventCals}} per hour<br>
                      <a v-bind:href="retEv.eventTutorial" target="_blank"> Click here for instructions! </a>
-                  </h2>
-                  
+                  </h4>
                </div> <!-- end join event page -->
                
                <div class = "joinEventMap">
-
-               </div> <!-- end join event map -->
-
-               <button id = "join-next" class = "btn" v-on:click="nextEvent(index)"><p class="btn-text">Next Event</p></button>
-               <button id = "join-prev" class = "btn" v-on:click="preEvent(index)"><p class="btn-text">Previous Event</p></button>
+                  <!-- <iframe width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen
+                  :src="retEv.apiURL"></iframe> -->
+               </div> 
+               <!-- end join event map -->
                <button id = "join-back" class = "btn" v-on:click="joinPageBack"><p class="btn-text">Back</p></button>
+               <button id = "join-prev" class = "btn" v-on:click="preEvent(index)"><p class="btn-text">Previous Event</p></button>
+               <button id = "join-next" class = "btn" v-on:click="nextEvent(index)"><p class="btn-text">Next Event</p></button>
             </div>
          </div> <!-- end join event container -->
 
