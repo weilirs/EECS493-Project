@@ -77,8 +77,14 @@ button {
 .filterEvents {
   position: relative;
   font-family: "PT Sans";
-  font-size: 20px;
-  left: 30%;
+  font-size: 40px;
+  left: 5%;
+  cursor: pointer;
+  color: darkblue;
+}
+.filterEvents:hover {
+  color: blue;
+  font-weight: bold;
 }
 
 #filterBack {
@@ -162,4 +168,20 @@ label {
 #createSuccess {
   background-color: beige;
   padding-left: 5px;
+}
+
+nav ul{
+  height:410px; 
+  width:100%;
+}
+nav ul{
+  overflow:hidden; 
+  overflow-y:scroll;
+  list-style-type: none;
+  padding: none;
+  margin: none;
+}
+nav ul p{
+  padding: none;
+  margin: none;
 }

@@ -98,7 +98,8 @@ var createPageView = new Vue({
         createEventHandler () {
             this.identifyEvent();
 
-            let event = {eventName: this.eventName, type: this.eventType, yourName: this.yourName, address: this.address, date: this.date, time: this.time, description: this.gameDscp, isVisible: false};
+            let event = {eventName: this.eventName, type: this.eventType, yourName: this.yourName, address: this.address, 
+            date: this.date, time: this.time, description: this.gameDscp, isVisible: false, eventCals: this.eventCals, eventTutorial: this.eventTutorial};
             this.events.push(event);
             if (this.eventType in this.eventTypes) {
                 this.eventTypes[this.eventType] = this.eventTypes[this.eventType] + 1;
@@ -127,8 +128,19 @@ var createPageView = new Vue({
                     break;
                 case "RUNNING":
                     this.eventCals = 573;
-                    this.eventTutorial = "You know how to run already dumbbass";
+                    this.eventTutorial = "https://www.wikihow.com/Start-Running";
                     break;
+                case "GOLF":
+                    this.eventCals = 305;
+                    this.eventTutorial = "https://en.wikipedia.org/wiki/Golf#Rules_and_regulations";
+                    break;
+                case "CYCLING":
+                    this.eventCals = 344;
+                    this.eventTutorial = "https://www.wikihow.com/Ride-a-Bicycle";
+                    break;
+
+                //feel free to add more
+
                 default:
                     this.eventCals = null;
                     this.eventTutorial = null;

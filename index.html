@@ -84,9 +84,17 @@
          
          <div id = "filterContainer" v-show = "showFilter">
             <h2 style = "padding-left:5px;">Filter:</h2> <br> 
-            <div class = "filterEvents"v-for="(value,name) in eventTypes">
-            <p @click = "choose(name)">{{name}}&emsp;&emsp;&emsp;&emsp;{{value}}</p> <br>
-            </div>
+            <nav id = "scrollable">
+               <ul>
+                  
+                  <li class = "filterEvents"v-for="(value,name) in eventTypes">
+                     <p @click = "choose(name)">{{name}}&emsp;&emsp;&emsp;&emsp;{{value}}</p> <br>
+                  </li>
+
+               </ul>
+            </nav>
+               
+
             <button id = "filterBack" class = "btn" v-on:click="filterPageBack"><p class="btn-text">Back</p></button>
          </div> <!-- end filter page -->
 
@@ -111,6 +119,10 @@
                   <div class = "joinEventDscp">
                      {{retEv.description}}
                   </div>
+                  <h2 id = "optData" v-show="retEv.eventCals">
+                     Calories: {{retEv.eventCals}} <br>
+                     <a v-bind:href="retEv.eventTutorial" target="_blank"> Click here for instructions! </a>
+                  </h2>
                   
                </div> <!-- end join event page -->
                
