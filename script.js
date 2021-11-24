@@ -5,8 +5,8 @@ var createPageView = new Vue({
         showCreate: false,
         showCreateSuccess: false,
         showFilter: false,
-        showJoin: [false,false],
         showHome: true,
+        joinConfirmPage: false,
         eventName: null,
         eventType: null,
         eventCals: null,
@@ -79,6 +79,15 @@ var createPageView = new Vue({
                 this.retEvents[i].isVisible = false;
             }
             this.showHome = true;
+        },
+
+        // confirm joining an event
+        joinConfirm (index) {
+            this.joinConfirmPage = true;
+        },
+
+        joinConfirmBack (index) {
+            this.joinConfirmPage = false;
         },
 
         clearForm () {

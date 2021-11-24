@@ -74,7 +74,7 @@
          </div> <!-- end create event page -->
          
          <div id = "createSuccess" v-show="showCreateSuccess">
-            <h2>Your event has been succesfully created!</h2>
+            <h2>Your event has been successfully created!</h2>
             <p><strong>Event Name:</strong> {{ eventName }} </p>
             <p><strong>Event Type:</strong> {{ eventType }} </p>
             <p><strong>Your Name:</strong> {{ yourName }} </p>
@@ -140,9 +140,14 @@
                <button id = "join-back" class = "btn" v-on:click="joinPageBack"><p class="btn-text">Back</p></button>
                <button id = "join-prev" class = "btn" v-on:click="preEvent(index)"><p class="btn-text">Previous Event</p></button>
                <button id = "join-next" class = "btn" v-on:click="nextEvent(index)"><p class="btn-text">Next Event</p></button>
+               <button id = "join-confirm" class = "btn" v-on:click="joinConfirm(index)"><p class="btn-text">Join!</p></button>
             </div>
          </div> <!-- end join event container -->
-
+         
+         <div id="joinConfirmPage" v-show="joinConfirmPage">
+            <h2>You have successfully joined this event!</h2>
+            <button id = "join-confirm-back" class = "btn" v-on:click="joinConfirmBack()"><p class="btn-text">Back</p></button>
+         </div> <!-- end join confirm page -->
         </div> <!-- end app -->
         <script src="script.js"></script>
      </body>

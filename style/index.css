@@ -112,19 +112,26 @@ button {
 #join-back {
   position: absolute;
   top: 550px;
-  left: 20px;
+  left: 40px;
 }
 
 #join-prev {
   position: absolute;
   top: 550px;
-  left: 400px;
+  left: 380px;
 }
 
 #join-next {
   position: absolute;
   top: 550px;
-  left: 780px;
+  left: 720px;
+}
+
+#join-confirm {
+  position: absolute;
+  top: 550px;
+  left: 1060px;
+  background-color: #ccffcc;
 }
 
 .joinEventMap {
@@ -164,6 +171,12 @@ label {
 #createSuccess {
   background-color: beige;
   padding-left: 5px;
+}
+
+#joinConfirmPage {
+  position:relative;
+  background-color: #ccffcc;
+  
 }
 
 nav ul{
