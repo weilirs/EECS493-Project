@@ -176,7 +176,15 @@ label {
 #joinConfirmPage {
   position:relative;
   background-color: #ccffcc;
-  
+  margin: 0 auto 0 auto;
+  width:50%;
+  text-align:center;
+  border: 5px solid black;
+}
+
+#joinConfirmPage div{
+  position: relative;
+  bottom: 200px;
 }
 
 nav ul{
