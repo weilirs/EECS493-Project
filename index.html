@@ -92,7 +92,8 @@
             <nav id = "scrollable">
                <ul>
                   <li class = "filterEvents"v-for="(value,name) in eventTypes">
-                     <p @click = "choose(name)">{{name}}&emsp;&emsp;&emsp;&emsp;{{value}}</p>
+                     <p class = "squeezeThis" @click = "choose(name)">{{name}}</p>
+                     <p>{{value}}</p>
                   </li>
                </ul>
             </nav>

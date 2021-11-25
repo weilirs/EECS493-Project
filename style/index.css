@@ -68,6 +68,12 @@ button {
 }
 
 .filterEvents {
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
+  width: 88%;
+  height: auto;
+
   position: relative;
   font-family: "PT Sans";
   font-size: 40px;
@@ -78,6 +84,11 @@ button {
 .filterEvents:hover {
   color: blue;
   font-weight: bold;
+}
+.squeezeThis {
+  width: 70%;
+  overflow: auto;
+  height: auto;
 }
 
 #filterBack {
@@ -190,6 +201,7 @@ label {
 nav ul{
   height:410px; 
   width:100%;
+  padding-left: 0;
 }
 
 nav ul{
