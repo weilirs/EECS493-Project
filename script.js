@@ -158,6 +158,38 @@ var createPageView = new Vue({
                     this.eventCals = 344;
                     this.eventTutorial = "https://www.wikihow.com/Ride-a-Bicycle";
                     break;
+                case "BADMINTON":
+                    this.eventCals = 394;
+                    this.eventTutorial = "https://en.wikipedia.org/wiki/Badminton#Rules";
+                    break;
+                case "CALISTHENICS":
+                    this.eventCals = 573;
+                    this.eventTutorial = "https://www.healthline.com/health/fitness-exercise/calisthenics";
+                    break;
+                case "KAYAKING":
+                    this.eventCals = 358;
+                    this.eventTutorial = "https://www.wikihow.com/Kayak";
+                    break;
+                case "CANOEING":
+                    this.eventCals = 286;
+                    this.eventTutorial = "https://www.wikihow.com/Canoe";
+                    break;
+                case "TENNIS":
+                    this.eventCals = 523;
+                    this.eventTutorial = "https://en.wikipedia.org/wiki/Tennis#Manner_of_play";
+                    break;
+                case "VOLLEYBALL":
+                    this.eventCals = 286;
+                    this.eventTutorial = "https://en.wikipedia.org/wiki/Volleyball#Rules_of_the_game";
+                    break;
+                case "SKATEBOARDING":
+                    this.eventCals = 358;
+                    this.eventTutorial = "https://www.wikihow.com/Skateboard";
+                    break;
+                case "FRISBEE":
+                    this.eventCals = 215;
+                    this.eventTutorial = "https://www.wikihow.com/Throw-a-Frisbee";
+                    break;
 
                 //feel free to add more
 

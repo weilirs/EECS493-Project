@@ -102,8 +102,8 @@
 
          <div id = "filterMap" v-show = "showFilter">
             <div class = "joinEventMap">
-               <!-- <iframe width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen
-               src="https://www.google.com/maps/embed/v1/place?q=Ann%20Arbor%2C%20MI&key=AIzaSyCoBbJGfGZmi2b01d9clRvmGxg-kcvDhW0"></iframe> -->
+               <iframe width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen
+               src="https://www.google.com/maps/embed/v1/place?q=Ann%20Arbor%2C%20MI&key=AIzaSyCoBbJGfGZmi2b01d9clRvmGxg-kcvDhW0"></iframe>
             </div> 
          </div> <!-- end filter map -->
          
@@ -111,6 +111,7 @@
             {{retEvent}}
             
          </div> end choose event page -->
+
          <div id = "joinEventContainer" v-for="(retEv,index) in retEvents">
             <div v-show="retEv.isVisible">
                <div :id = "'joinEvent' + index" class = "joinEvent">
@@ -134,8 +135,8 @@
                </div> <!-- end join event page -->
                
                <div class = "joinEventMap">
-                  <!-- <iframe width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen
-                  :src="retEv.apiURL"></iframe> -->
+                  <iframe width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen
+                  :src="retEv.apiURL"></iframe>
                </div> 
                <!-- end join event map -->
                <button id = "join-back" class = "btn" v-on:click="joinPageBack"><p class="btn-text">Back</p></button>
