@@ -128,13 +128,19 @@
                      <p id="eventType" class="no-margin">Event Type: {{ retEv.type }}</p>
                      {{retEv.description}}
                   </div>
-                  <h2 v-show="retEv.reported" style = "color:red;">
+                  <h4 v-show="retEv.reported" style = "color:red; margin: 0;">
                      This event has been reported by another user.
-                  </h2>
+                  </h4>
                   <h4 id = "optData" v-show="retEv.eventCals">
                      Calories: {{retEv.eventCals}} per hour<br>
                      <a v-bind:href="retEv.eventTutorial" target="_blank"> Click here for instructions! </a>
                   </h4>
+                  <button id = "join-partic" class = "btn" v-on:click="seeParticipants(index)"><p class="btn-text">See Participants</p></button>
+                  <div class = "participantTab" v-show="retEv.participantVisible">
+                     <h3>Participants:</h3>
+                     <p class="no-margin" v-for="name in retEv.participants">{{name}}</p>
+                     <button class="btn closeParticipantTab" v-on:click="closeParticipants(index)">Close Participants</button>
+                  </div>
                </div> <!-- end join event page -->
                
                <div class = "joinEventMap">
@@ -145,17 +151,24 @@
                <button id = "join-back" class = "btn" v-on:click="joinPageBack"><p class="btn-text">Back</p></button>
                <button id = "join-prev" class = "btn" v-on:click="preEvent(index)"><p class="btn-text">Previous Event</p></button>
                <button id = "join-next" class = "btn" v-on:click="nextEvent(index)"><p class="btn-text">Next Event</p></button>
-               <button id = "join-confirm" class = "btn" v-on:click="joinConfirm(index)"><p class="btn-text">Join!</p></button>
+               <button id = "join-confirm" class = "btn" v-on:click="joinShowName(index)"><p class="btn-text">Join!</p></button>
                <button id = "join-report" class = "btn" v-on:click="joinReport(index)"><p class="btn-text">Report</p></button>
             </div>
+
+
+            <div class="joinPage" v-show="retEv.joinPage">
+               <h3 style="margin-top: 50px;" class="joinPageHeader">Your Name:</h3>
+               <input v-model="joinParticipantName" name="yourName" type="text" cols="40" rows="5"><br>
+               <button style="margin-top: 50px;" class = "btn" v-on:click="joinEventHandler(index)"><p class="btn-text">Join Event</p></button>
+            </div> <!-- end join page -->
+
+            <div class="joinConfirmPage" v-show="retEv.joinConfirmPage">
+               <div>
+               <h2 style="margin-top: 50px;">You have successfully joined this event!</h2>
+               <button style="margin-top: 50px;" class = "btn join-confirm-back" class = "btn" v-on:click="joinConfirmBack(index)"><p class="btn-text">Back</p></button>
+               </div>
+            </div> <!-- end join confirm page -->
          </div> <!-- end join event container -->
-         
-         <div id="joinConfirmPage" v-show="joinConfirmPage">
-            <div>
-            <h2>You have successfully joined this event!</h2>
-            <button id = "join-confirm-back" class = "btn" v-on:click="joinConfirmBack()"><p class="btn-text">Back</p></button>
-            </div>
-         </div> <!-- end join confirm page -->
         </div> <!-- end app -->
         <script src="script.js"></script>
      </body>

@@ -104,6 +104,7 @@ button {
   border: 5px solid black;
   margin-left: 5px;
   background-color: white;
+  z-index: 0;
 }
 
 .joinEventInfo {
@@ -191,18 +192,28 @@ label {
   padding-left: 5px;
 }
 
-#joinConfirmPage {
-  position: relative;
+.joinPage {
+  position: absolute;
   background-color: #ccffcc;
-  margin: 0 auto 0 auto;
   width: 50%;
+  height: 70%;
   text-align: center;
   border: 5px solid black;
+  z-index: 10;
+  top: 15%;
+  left: 25%;
 }
 
-#joinConfirmPage div {
-  position: relative;
-  bottom: 200px;
+.joinConfirmPage {
+  position: absolute;
+  background-color: #ccffcc;
+  width: 50%;
+  height: 70%;
+  text-align: center;
+  border: 5px solid black;
+  z-index: 10;
+  top: 15%;
+  left: 25%;
 }
 
 nav ul {
@@ -229,4 +240,28 @@ nav ul p {
 
 #eventType {
   font-size: 14px;
+}
+
+#join-partic {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  background-color: #ccffcc;
+}
+
+.participantTab {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  top: 0;
+  background-color: white;
+}
+
+.closeParticipantTab {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
 }

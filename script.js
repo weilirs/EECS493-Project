@@ -17,6 +17,7 @@ var createPageView = new Vue({
         time: null,
         duration: null,
         gameDscp: null,
+        joinParticipantName: null,
         events: [],
         eventTypes: {},
         retEvents:[],
@@ -60,6 +61,8 @@ var createPageView = new Vue({
         // switch to next event 
         nextEvent (index) {
             if(index < this.retEvents.length - 1){
+                this.retEvents[index].participantVisible = false;
+                this.retEvents[index].joinPage = false;
                 this.retEvents[index].isVisible = false;
                 this.retEvents[index+1].isVisible = true;
             }
@@ -68,6 +71,8 @@ var createPageView = new Vue({
         // switch to previous event
         preEvent (index) {
             if(index > 0){
+                this.retEvents[index].participantVisible = false;
+                this.retEvents[index].joinPage = false;
                 this.retEvents[index].isVisible = false;
                 this.retEvents[index-1].isVisible = true;
             }
@@ -77,17 +82,28 @@ var createPageView = new Vue({
         joinPageBack () {
             for(let i=0; i<this.retEvents.length;i++){
                 this.retEvents[i].isVisible = false;
+                this.retEvents[i].participantVisible = false;
+                this.retEvents[i].joinPage = false;
+                this.retEvents[i].joinConfirmPage = false;
             }
             this.showHome = true;
         },
 
-        // confirm joining an event
-        joinConfirm (index) {
-            this.joinConfirmPage = true;
+        // show place to enter name to join event
+        joinShowName (index) {
+            this.retEvents[index].joinPage = true;
         },
 
+        joinEventHandler (index) {
+            this.retEvents[index].participants.push(this.joinParticipantName);
+            this.joinParticipantName = null;
+            this.retEvents[index].joinPage = false;
+            this.retEvents[index].joinConfirmPage = true;
+        },
+
+        // back button for confirming joining an event
         joinConfirmBack (index) {
-            this.joinConfirmPage = false;
+            this.retEvents[index].joinConfirmPage = false;
         },
 
         // report an event
@@ -122,8 +138,11 @@ var createPageView = new Vue({
 
             this.eventType = this.eventType.toLowerCase();
 
-            let event = {eventName: this.eventName, type: this.eventType, yourName: this.yourName, address: this.address, apiURL: apiUrl,
-            date: this.date, time: this.time, duration: this.duration, description: this.gameDscp, isVisible: false, eventCals: this.eventCals, eventTutorial: this.eventTutorial, reported: false};
+            let participantList = [];
+            participantList.push(this.yourName);
+
+            let event = {eventName: this.eventName, type: this.eventType, yourName: this.yourName, address: this.address, apiURL: apiUrl, participants: participantList, participantVisible: false, joinPage: false,
+            joinConfirmPage: false, date: this.date, time: this.time, duration: this.duration, description: this.gameDscp, isVisible: false, eventCals: this.eventCals, eventTutorial: this.eventTutorial, reported: false};
             this.events.push(event);
             if (this.eventType in this.eventTypes) {
                 this.eventTypes[this.eventType] = this.eventTypes[this.eventType] + 1;
@@ -135,6 +154,14 @@ var createPageView = new Vue({
             this.showCreateSuccess = true;
 
             console.log(event);
+        },
+
+        seeParticipants (index) {
+            this.retEvents[index].participantVisible = true; 
+        },
+
+        closeParticipants (index) {
+            this.retEvents[index].participantVisible = false; 
         },
 
         //function for recognizing activities for offering calorie information and instructions
