@@ -145,6 +145,13 @@ button {
   background-color: #ccffcc;
 }
 
+#join-report {
+  position: absolute;
+  top: 600px;
+  left: 550px;
+  background-color: #dc143c;
+}
+
 .joinEventMap {
   position: relative;
   float: right;
@@ -185,33 +192,33 @@ label {
 }
 
 #joinConfirmPage {
-  position:relative;
+  position: relative;
   background-color: #ccffcc;
   margin: 0 auto 0 auto;
-  width:50%;
-  text-align:center;
+  width: 50%;
+  text-align: center;
   border: 5px solid black;
 }
 
-#joinConfirmPage div{
+#joinConfirmPage div {
   position: relative;
   bottom: 200px;
 }
 
-nav ul{
-  height:410px; 
-  width:100%;
+nav ul {
+  height: 410px;
+  width: 100%;
   padding-left: 0;
 }
 
-nav ul{
+nav ul {
   overflow-y: scroll;
   list-style-type: none;
   padding: none;
   margin: none;
 }
 
-nav ul p{
+nav ul p {
   padding: none;
   margin: none;
 }

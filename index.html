@@ -128,6 +128,9 @@
                      <p id="eventType" class="no-margin">Event Type: {{ retEv.type }}</p>
                      {{retEv.description}}
                   </div>
+                  <h2 v-show="retEv.reported" style = "color:red;">
+                     This event has been reported by another user.
+                  </h2>
                   <h4 id = "optData" v-show="retEv.eventCals">
                      Calories: {{retEv.eventCals}} per hour<br>
                      <a v-bind:href="retEv.eventTutorial" target="_blank"> Click here for instructions! </a>
@@ -143,6 +146,7 @@
                <button id = "join-prev" class = "btn" v-on:click="preEvent(index)"><p class="btn-text">Previous Event</p></button>
                <button id = "join-next" class = "btn" v-on:click="nextEvent(index)"><p class="btn-text">Next Event</p></button>
                <button id = "join-confirm" class = "btn" v-on:click="joinConfirm(index)"><p class="btn-text">Join!</p></button>
+               <button id = "join-report" class = "btn" v-on:click="joinReport(index)"><p class="btn-text">Report</p></button>
             </div>
          </div> <!-- end join event container -->
          

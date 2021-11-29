@@ -90,6 +90,12 @@ var createPageView = new Vue({
             this.joinConfirmPage = false;
         },
 
+        // report an event
+
+        joinReport(index) {
+            this.retEvents[index].reported = true;
+        },
+
         clearForm () {
             this.eventName = null;
             this.eventType = null;
@@ -117,7 +123,7 @@ var createPageView = new Vue({
             this.eventType = this.eventType.toLowerCase();
 
             let event = {eventName: this.eventName, type: this.eventType, yourName: this.yourName, address: this.address, apiURL: apiUrl,
-            date: this.date, time: this.time, duration: this.duration, description: this.gameDscp, isVisible: false, eventCals: this.eventCals, eventTutorial: this.eventTutorial};
+            date: this.date, time: this.time, duration: this.duration, description: this.gameDscp, isVisible: false, eventCals: this.eventCals, eventTutorial: this.eventTutorial, reported: false};
             this.events.push(event);
             if (this.eventType in this.eventTypes) {
                 this.eventTypes[this.eventType] = this.eventTypes[this.eventType] + 1;
