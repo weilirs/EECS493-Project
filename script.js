@@ -63,6 +63,7 @@ var createPageView = new Vue({
             if(index < this.retEvents.length - 1){
                 this.retEvents[index].participantVisible = false;
                 this.retEvents[index].joinPage = false;
+                this.retEvents[index].joinConfirmPage = false;
                 this.retEvents[index].isVisible = false;
                 this.retEvents[index+1].isVisible = true;
             }
@@ -73,6 +74,7 @@ var createPageView = new Vue({
             if(index > 0){
                 this.retEvents[index].participantVisible = false;
                 this.retEvents[index].joinPage = false;
+                this.retEvents[index].joinConfirmPage = false;
                 this.retEvents[index].isVisible = false;
                 this.retEvents[index-1].isVisible = true;
             }
