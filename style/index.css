@@ -301,8 +301,9 @@ nav ul p {
   margin: auto;
   background-color: #ccffcc;
 
+  overflow-y: scroll;
   height: 80%;
-  width: 30%;
+  width: 500px;
 }
 #recommendations #sugTitle {
   float: left;
