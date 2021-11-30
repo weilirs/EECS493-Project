@@ -71,6 +71,7 @@
              <br>
              <button class = "btn" v-on:click="createPageBack"><p class="btn-text">Back</p></button>
              <button class = "btn" v-on:click="createEventHandler"><p class="btn-text">Create Event</p></button>
+             <button id="sugButt" class = "btn" v-on:click="suggestActivate"><p class="btn-text">Suggestions</p></button>
          </div> <!-- end create event page -->
          
          <div id = "createSuccess" v-show="showCreateSuccess">
@@ -86,6 +87,45 @@
             <p>{{ gameDscp }}</p>
             <button class = "btn" v-on:click="createSuccessHome"><p class="btn-text">Home</p></button>
          </div> <!-- end create success page -->
+
+         <div id = "recommendations" v-show = "suggestBool">
+            <h1 id="sugTitle">Common activities &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h1> 
+            <h1 id="xbutton" @click = "suggestActivate">&#10006</h1>
+            <p>Click on the activity for a tutorial!</p>
+
+            <div class="column left">
+               <h2>Activity</h2>
+               <a href="https://www.wikihow.com/Walk" target="_blank">Walking</a><br>
+               <a href="https://www.wikihow.com/Jog" target="_blank">Jogging</a><br>
+               <a href="https://www.wikihow.com/Throw-a-Frisbee" target="_blank">Frisbee</a><br>
+               <a href="https://en.wikipedia.org/wiki/Volleyball#Rules_of_the_game" target="_blank">Volleyball</a><br>
+               <a href="https://en.wikipedia.org/wiki/Basketball#Rules_and_regulations" target="_blank">Basketball</a><br>
+               <a href="https://www.wikihow.com/Start-Running" target="_blank">Running</a><br>
+               <a href="https://en.wikipedia.org/wiki/Golf#Rules_and_regulations" target="_blank">Golf</a><br>
+               <a href="https://en.wikipedia.org/wiki/Badminton#Rules" target="_blank">Badminton</a><br>
+               <a href="https://www.wikihow.com/Kayak" target="_blank">Kayaking</a><br>
+               <a href="https://www.wikihow.com/Canoe" target="_blank">Canoeing</a><br>
+               <a href="https://www.healthline.com/health/fitness-exercise/calisthenics" target="_blank">Calisthenics</a><br>
+
+            </div>
+
+            <div class="column right">
+               <h2>Intensity Score</h2>
+               <p>215</p><br>
+               <p>501</p><br>
+               <p>215</p><br>
+               <p>286</p><br>
+               <p>465</p><br>
+               <p>573</p><br>
+               <p>305</p><br>
+               <p>394</p><br>
+               <p>358</p><br>
+               <p>285</p><br>
+               <p>573</p><br>
+
+            </div>
+
+         </div>
          
          <div id = "filterContainer" v-show = "showFilter">
             <h2 style = "padding-left:5px;">Filter:</h2> <br> 
@@ -132,7 +172,7 @@
                      This event has been reported by another user.
                   </h4>
                   <h4 id = "optData" v-show="retEv.eventCals">
-                     Calories: {{retEv.eventCals}} per hour<br>
+                     Intensity Score: {{retEv.eventCals}} <br>
                      <a v-bind:href="retEv.eventTutorial" target="_blank"> Click here for instructions! </a>
                   </h4>
                   <button id = "join-partic" class = "btn" v-on:click="seeParticipants(index)"><p class="btn-text">See Participants</p></button>

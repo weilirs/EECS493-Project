@@ -21,6 +21,7 @@ var createPageView = new Vue({
         events: [],
         eventTypes: {},
         retEvents:[],
+        suggestBool: false,
     },
 
     methods: {
@@ -39,6 +40,15 @@ var createPageView = new Vue({
         createPageBack () {
             this.showCreate = false;
             this.showHome = true;
+        },
+
+        suggestActivate () {
+            if(this.suggestBool == true){
+                this.suggestBool = false;
+            }
+            else{
+                this.suggestBool = true;
+            }
         },
 
         filterPageBack () {
@@ -224,6 +234,14 @@ var createPageView = new Vue({
                 case "FRISBEE":
                     this.eventCals = 215;
                     this.eventTutorial = "https://www.wikihow.com/Throw-a-Frisbee";
+                    break;
+                case "WALKING":
+                    this.eventCals = 215;
+                    this.eventTutorial = "https://www.wikihow.com/Walk";
+                    break;
+                case "JOGGING":
+                    this.eventCals = 501;
+                    this.eventTutorial = "https://www.wikihow.com/Jog";
                     break;
 
                 //feel free to add more

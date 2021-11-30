@@ -265,3 +265,56 @@ nav ul p {
   right: 0;
   width: 50%;
 }
+
+.column {
+  float:left;
+  padding: 10px;
+}
+
+.left {
+  width: 50%;
+}
+.right{
+  width: 50%;
+}
+
+#recommendations a {
+  font-size: 30px;
+  line-height: 1.645;
+  padding: 0;
+  margin: 0;
+}
+#recommendations p {
+  font-size: 30px;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+}
+#recommendations {
+  border-radius: 15px;
+  padding: 15px;
+  margin: 15px;
+  position: absolute;
+  top: 25px;
+  left: 50px;
+  z-index: 1;
+  margin: auto;
+  background-color: #ccffcc;
+
+  height: 80%;
+  width: 30%;
+}
+#recommendations #sugTitle {
+  float: left;
+  font-weight: bold;
+}
+#recommendations h2 {
+  font-weight: bold;
+}
+#xbutton:hover {
+  color: red;
+  cursor: pointer;
+}
+#sugButt {
+  background-color: #ccffcc;
+}
