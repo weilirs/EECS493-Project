@@ -65,6 +65,19 @@ var createPageView = new Vue({
                     this.retEvents.push(this.events[i]);
                 }
             }
+            // sort events by date
+            this.retEvents = this.retEvents.sort(function(a,b){
+                if((new Date(b.date) - new Date(a.date)) > 0) {
+                    return -1;
+                }
+                else if ((new Date(b.date) - new Date(a.date)) < 0) {
+                    return 1;
+                }
+                else {
+                    return 0;
+                }
+                
+              })
             this.retEvents[0].isVisible = true;
         },
 
