@@ -22,7 +22,6 @@ var createPageView = new Vue({
         eventTypes: {},
         retEvents:[],
     },
-
     methods: {
         showCreatePage () {
             this.showCreate = true;
@@ -234,6 +233,17 @@ var createPageView = new Vue({
             }
 
 
-        }
+        },
+
+        grayPrevButton(index) {
+            if (index - 1 < 0) {
+                return true;
+            }
+        },
+        grayNextButton(index) {
+            if (index + 1 >= this.retEvents.length) {
+                return true;
+            }
+        },
     }
 })

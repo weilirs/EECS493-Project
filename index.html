@@ -60,11 +60,11 @@
                   <label for="time">Time:</label><br>
                   <input v-model="time" name="time" type="time" cols="40" rows="5"><br>
 
-                  <label for="duration">Duration:</label><br>
+                  <label for="duration">Duration:<span style="font-size: 12px; opacity: 80%;"> (Optional)</span></label><br>
                   <p class="description">Enter duration of event in hours</p>
                   <input v-model="duration" name="duration" type="number" min="0" max="10" cols="40" rows="5"><br>
 
-                  <label for="gameDscp" class="labelDescription">Event Description:</label><br>
+                  <label for="gameDscp" class="labelDescription">Event Description:<span style="font-size: 12px; opacity: 80%;"> (Optional)</span></label><br>
                   <p class="description">Enter any important information about your event such as desired skill level, number of participants, etc.</p>
                   <textarea v-model="gameDscp" name="gameDscp" class="textarea" cols="40" rows="5"></textarea><br>
              </form>
@@ -149,8 +149,8 @@
                </div> 
                <!-- end join event map -->
                <button id = "join-back" class = "btn" v-on:click="joinPageBack"><p class="btn-text">Back</p></button>
-               <button id = "join-prev" class = "btn" v-on:click="preEvent(index)"><p class="btn-text">Previous Event</p></button>
-               <button id = "join-next" class = "btn" v-on:click="nextEvent(index)"><p class="btn-text">Next Event</p></button>
+               <button :id = "'join-prev' + retEv.type + index" class = "btn join-prev" :class= "{disabled: grayPrevButton(index)}" v-on:click="preEvent(index)"><p class="btn-text">Previous Event</p></button>
+               <button :id = "'join-next' + retEv.type + index" class = "btn join-next" :class= "{disabled: grayNextButton(index)}" v-on:click="nextEvent(index)"><p class="btn-text">Next Event</p></button>
                <button id = "join-confirm" class = "btn" v-on:click="joinShowName(index)"><p class="btn-text">Join!</p></button>
                <button id = "join-report" class = "btn" v-on:click="joinReport(index)"><p class="btn-text">Report</p></button>
             </div>
