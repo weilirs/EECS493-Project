@@ -21,6 +21,7 @@ var createPageView = new Vue({
         events: [],
         eventTypes: {},
         retEvents:[],
+        suggestBool: false,
     },
     methods: {
         showCreatePage () {
@@ -40,6 +41,15 @@ var createPageView = new Vue({
             this.showHome = true;
         },
 
+        suggestActivate () {
+            if(this.suggestBool == true){
+                this.suggestBool = false;
+            }
+            else{
+                this.suggestBool = true;
+            }
+        },
+
         filterPageBack () {
             this.showFilter = false;
             this.showHome = true;
@@ -54,6 +64,19 @@ var createPageView = new Vue({
                     this.retEvents.push(this.events[i]);
                 }
             }
+            // sort events by date
+            this.retEvents = this.retEvents.sort(function(a,b){
+                if((new Date(b.date) - new Date(a.date)) > 0) {
+                    return -1;
+                }
+                else if ((new Date(b.date) - new Date(a.date)) < 0) {
+                    return 1;
+                }
+                else {
+                    return 0;
+                }
+                
+              })
             this.retEvents[0].isVisible = true;
         },
 
@@ -223,6 +246,14 @@ var createPageView = new Vue({
                 case "FRISBEE":
                     this.eventCals = 215;
                     this.eventTutorial = "https://www.wikihow.com/Throw-a-Frisbee";
+                    break;
+                case "WALKING":
+                    this.eventCals = 215;
+                    this.eventTutorial = "https://www.wikihow.com/Walk";
+                    break;
+                case "JOGGING":
+                    this.eventCals = 501;
+                    this.eventTutorial = "https://www.wikihow.com/Jog";
                     break;
 
                 //feel free to add more
